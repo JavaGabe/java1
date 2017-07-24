@@ -3,19 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hello.world;
+package person;
 
 /**
  *
  * @author Education Unlimited
  */
-public class HelloWorld {
+public class Person {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        System.out.println("Gabe Tejeda, 14");
+        System.out.println("Hometown: Las Vegas");
+        System.out.println("Hobbies: Track, Origami, Piano");
+        System.out.println("Favorite Color: Green");
     }
     
 }
