@@ -12,6 +12,8 @@ public class Doubles {
         System.out.println(random);
         int random2 = (int)(Math.random() * 6 + 1);
         System.out.println(random2);
+        int counter = 0;
+                counter ++;
         
         while (random!=random2) {
             System.out.println("Sorry, you didn't get a double.");
@@ -21,9 +23,10 @@ public class Doubles {
             System.out.println(random);
             random2 = (int)(Math.random() * 6 + 1);
             System.out.println(random2);
+            counter ++;
         }
             System.out.println("Congratulations! You rolled a double.");
-
+            System.out.println("Times rolled: "+counter);
 
     }
     
