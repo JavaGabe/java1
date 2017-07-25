@@ -67,7 +67,8 @@ public class ArrayFunJava {
             int random1 = (int) (Math.random() * 1000 + 1);
             System.out.print(" " + random1 + " ");
             index2++;
-            while 
+            int index3 =0;
+            while (index3 )
         }
     }
 
