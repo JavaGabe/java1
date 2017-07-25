@@ -1,21 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package highorlow.java;
 
-/**
- *
- * @author Education Unlimited
- */
+import java.util.Scanner;
+
 public class HighOrLowJava {
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner keyboard = new Scanner(System.in);
+        int random = (int)(Math.random() * 100 + 1);
+        System.out.println("Guess my number between 1 and 100.");
+        int guess = Integer.parseInt(keyboard.nextLine());
+        while (random!=guess) {
+            if (random > guess) {
+                System.out.println("You are too low. Try again.");
+                
+            }
+            else  {
+                System.out.println("You are too high. Try again.");
+            }
+             guess = Integer.parseInt(keyboard.nextLine());
+        }
+        System.out.println("Congratulations! The number is "+random);
+        }
     }
     
-}
