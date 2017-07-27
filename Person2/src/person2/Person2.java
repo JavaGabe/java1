@@ -7,9 +7,7 @@ public class Person2 {
     boolean isAStudent;
     double height;
 
-    public Person2(String newFirstName, String newLastName, String newPhoneNumber)
-
-    {
+    public Person2(String newFirstName, String newLastName, String newPhoneNumber) {
         firstName = newFirstName;
         lastName = newLastName;
         phoneNumber = newPhoneNumber;
