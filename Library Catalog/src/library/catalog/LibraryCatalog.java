@@ -9,6 +9,7 @@ public class LibraryCatalog {
     static Scanner keyboard;
     static ArrayList<Users> accounts;
     static Users current;
+
     public static void main(String[] args) {
         keyboard = new Scanner(System.in);
         Book b1 = new Book("Sherlock Holmes", "Sir Arthur Conan Doyle", 827463.4, 233, false, false);
@@ -25,7 +26,7 @@ public class LibraryCatalog {
         Users u1 = new Users("Bob");
         Users u2 = new Users("BookLover");
         Users u3 = new Users("NormalPerson");
-        current=null;
+        current = null;
         accounts = new ArrayList<Users>();
         accounts.add(u1);
         accounts.add(u2);
@@ -46,24 +47,26 @@ public class LibraryCatalog {
         for (Book b : catalog) {
             b.printBook();
         }
+        System.out.println("What is your username?");
+        String answer0 = keyboard.nextLine();
+        for (Users u : accounts) {
+            if (u.username.equals(answer0)) {
+                current = u;
+            }
+        }
         boolean quitfunction = false;
         while (quitfunction == false) {
-            System.out.println("What is your username?");
-             String answer0 = keyboard.nextLine();
-                for (Users u: accounts) {
-                    if (u.username.equals(answer0)){
-                        current = u;
-                    }
-                }
-                if (current == null) {
-                    System.out.println("Invalid Username");
-                }
+
+            if (current == null) {
+                System.out.println("Invalid Username");
+            }
             System.out.println("Would you like to");
             System.out.println("\tA) Check out a book?");
             System.out.println("\tB) Return a book?");
             System.out.println("\tC) Reserve a book?");
             System.out.println("\tD) View books?");
-            System.out.println("\tE) Quit?");
+            System.out.println("\tE) Change User?");
+            System.out.println("\tF) Quit?");
             String answer = keyboard.nextLine();
             if (answer.equals("A")) {
                 checkOut();
@@ -79,16 +82,28 @@ public class LibraryCatalog {
                                 b.printBook();
                             }
                         } else {
-                            quitfunction = true;
-                            System.out.println("Thank you for your time.");
+                            if (answer.equals("E")) {
+                                System.out.println("What is your username?");
+                                answer0 = keyboard.nextLine();
+                                for (Users u : accounts) {
+                                    if (u.username.equals(answer0)) {
+                                        current = u;
+                                    }
+                                }
+                            } else {
+                                if (answer.equals("F")) {
+                                    quitfunction = true;
+                                    System.out.println("Thank you for your time.");
+                                }
+                            }
                         }
                     }
                 }
-            }
 
+            }
         }
     }
-static boolean found = false;
+    static boolean found = false;
 
     public static boolean checkOut() {
         System.out.println("Type the title you are looking for:");
@@ -99,7 +114,7 @@ static boolean found = false;
                     System.out.println("Book is reserved and not available or checkout.");
                     found = true;
                 } else if (b.checkedBook == false) {
-                   
+
                     System.out.println("Book found and checked out.");
                     found = true;
                     current.checkOutBook(b);
@@ -122,7 +137,7 @@ static boolean found = false;
         for (Book b : catalog) {
             if (b.title.equals(title)) {
                 if (b.checkedBook == true) {
-                    
+
                     current.returnBook(b);
                     found = true;
                 } else {
