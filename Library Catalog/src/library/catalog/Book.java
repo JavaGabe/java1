@@ -20,7 +20,7 @@ public class Book {
     public void printBook() {
 
         System.out.print(title + ", " + author + ". " + isbn + ", " + pageCount);
-        if (checkedBook = true) {
+        if (checkedBook == true) {
             System.out.println(" - Checked Out");
         } else  {
             System.out.println(" - Available for Checkout");
